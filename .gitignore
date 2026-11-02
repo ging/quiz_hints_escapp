@@ -34,3 +34,7 @@ npm-debug.log
 .vscode
 
 /coverage
+
+/dist/
+
+webpack-stats.json

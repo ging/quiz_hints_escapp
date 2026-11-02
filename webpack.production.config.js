@@ -1,8 +1,42 @@
 const { resolve } = require('path');
+const fs = require('fs');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const LicenseWebpackPlugin = require('license-webpack-plugin').LicenseWebpackPlugin;
+
+class PrependProjectLicensePlugin {
+  apply(compiler) {
+    compiler.plugin('done', () => {
+      const licensePath = resolve(__dirname, 'LICENSE');
+      const outputPath = resolve(
+        __dirname,
+        'dist',
+        'LICENSE'
+      );
+
+      const projectLicense = fs.readFileSync(licensePath, 'utf8').trim();
+      const thirdPartyLicenses = fs.readFileSync(outputPath, 'utf8').trim();
+
+      const separator =
+        '=================================================================================================';
+
+      const combined = [
+        projectLicense,
+        '',
+        separator,
+        'Additional Third-Party Dependencies',
+        separator,
+        '',
+        thirdPartyLicenses,
+        ''
+      ].join('\n');
+
+      fs.writeFileSync(outputPath, combined, 'utf8');
+    });
+  }
+}
 
 const config = {
   devtool: 'cheap-module-source-map',
@@ -40,6 +74,29 @@ const config = {
     new webpack.DefinePlugin({ 'process.env': { NODE_ENV: JSON.stringify('production') } }),
     new ExtractTextPlugin({ filename: './styles/style.css', disable: false, allChunks: true }),
     new CopyWebpackPlugin([{ from: './vendors', to: 'vendors' }]),
+    new LicenseWebpackPlugin({
+      outputFilename: 'LICENSE',
+      excludedPackageTest: (packageName) => packageName === 'QuizHintsEscapp',
+      licenseTypeOverrides: {
+        'regenerator-runtime': 'BSD-2-Clause'
+      },
+      licenseTextOverrides: {
+        'babel-polyfill': fs.readFileSync(
+          resolve(__dirname, 'licenses/babel-polyfill.txt'), 'utf8'
+        ),
+        'regenerator-runtime': fs.readFileSync(
+          resolve(__dirname, 'licenses/regenerator-runtime.txt'), 'utf8'
+        ),
+        'isarray': fs.readFileSync(
+          resolve(__dirname, 'node_modules/isarray/LICENSE'), 'utf8'
+        )
+      },
+      handleMissingLicenseText: (packageName, licenseType) => {
+        console.warn('Falta texto de licencia:', packageName, licenseType);
+        return null;
+      }
+    }),
+    new PrependProjectLicensePlugin()
   ],
 
   module: {

@@ -118,15 +118,10 @@ export class App extends React.Component {
         this.setState({loading:false});
       });
     }
-
-    changeTheme(GLOBAL_CONFIG.theme || 'default');
-
   }
 
 }
-function changeTheme(theme){
-  // document.getElementById("theme").setAttribute('href', `https://bootswatch.com/4/${theme}/bootstrap.min.css`);
-}
+
 
 function mapStateToProps(state){
   return state;
