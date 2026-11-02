@@ -14,7 +14,7 @@
      debug:true,
      debug_scorm_api:false,
      debug_scorm_api_window:false,
-     available_locales:["en", "es"],
+     available_locales:["en", "es", "sr"],
     // locale: "es",
      adaptive:false,
      finish_screen:true,
@@ -40,7 +40,7 @@
      debug:false,
      debug_scorm_api:false,
      debug_scorm_api_window:false,
-     available_locales:["en", "es"],
+     available_locales:["en", "es", "sr"],
      adaptive:false,
      finish_screen:true,
      scorm:{

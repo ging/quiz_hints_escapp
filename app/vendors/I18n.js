@@ -63,7 +63,7 @@ function readURLparams(){
 }
 
 function isValidLanguage(language){
-  return ((typeof language === "string") && (["en", "es"].indexOf(language) !== -1));
+  return ((typeof language === "string") && (["en", "es", "sr"].indexOf(language) !== -1));
 }
 
 export function getTrans(s, params){

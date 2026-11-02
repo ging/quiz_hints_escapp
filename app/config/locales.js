@@ -38,4 +38,23 @@ export let LOCALES = {
     "i.true":"Verdadero",
     "i.false":"Falso",
   },
+  sr:{
+    "i.answer":"Pošalji",
+    "i.difficulty":"Težina",
+    "i.finish_quiz":"Završi kviz",
+    "i.finish_screen_title_full":"Sadržaj je završen. Možete zatvoriti ovaj prozor. Vaš konačni napredak je bio #{progress_measure}%, a vaš konačni rezultat #{score}%.",
+    "i.finish_screen_title_wpm":"Sadržaj je završen. Možete zatvoriti ovaj prozor. Vaš konačni napredak je bio #{progress_measure}%.",
+    "i.finish_screen_title_ws":"Sadržaj je završen. Možete zatvoriti ovaj prozor. Vaš konačni rezultat je bio #{score}%.",
+    "i.finish_screen_title_simple":"Sadržaj je završen. Možete zatvoriti ovaj prozor.",
+    "i.quiz_header_title":"Pitanje: #{current}/#{total}",
+    "i.logged_as":"Prijavljeni kao",
+    "i.next":"Dalje",
+    "i.loading":"Učitavanje",
+    "i.progress_measure":"Mera napretka",
+    "i.reset_question":"Resetuj pitanje",
+    "i.reset_quiz":"Resetuj kviz",
+    "i.score":"Rezultat",
+    "i.true":"Tačno",
+    "i.false":"Netačno",
+  }
 };
