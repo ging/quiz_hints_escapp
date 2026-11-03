@@ -2,7 +2,7 @@
  * Local_API_1484_11
  * Mimics LMS Connectivity in Local Mode (i.e. standalone functionality) for SCORM 2004
  *
- * Modifiyed by GING.
+ * Modified by GING.
  *
  * Original provided by: 
  *

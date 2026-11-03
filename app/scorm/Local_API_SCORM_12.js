@@ -2,7 +2,7 @@
  * Local_API_SCORM_12
  * Mimics LMS Connectivity in Local Mode (i.e. standalone functionality) for SCORM 1.2
  *
- * Modifiyed by GING.
+ * Modified by GING.
  *
  * Original provided by: 
  *
@@ -28,6 +28,7 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+
 function Local_API_SCORM_12(options){
   // Constructor
   "use strict";

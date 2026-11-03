@@ -2,7 +2,7 @@
  * SCORM API
  * This is a API that establishes communication with LMSs in SCORM 1.2 or SCORM 2004.
  *
- * Modifiyed by GING.
+ * Modified by GING in 2018.
  *
  * Original provided by: 
  *
